@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "BPython Shell",
+            "type": "python",
+            "request": "launch",
+            "envFile": "${workspaceFolder}/.env",
+            "module": "bpython",
+            "args": [
+                "-q",
+                "--log-level",
+                "debug",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Decorating Class",
+            "type": "python",
+            "request": "launch",
+            "envFile": "${workspaceFolder}/.env",
+            "program": "${workspaceFolder}/src/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Testing Entity Handler",
+            "type": "python",
+            "request": "launch",
+            "envFile": "${workspaceFolder}/.env",
+            "code": "from entities import AccountUser; from decorators import EntityHandler; user_data: dict = {'name': 'John','age': 23,'bank_account_mount': 23456.789,'is_alive': 23.45}; entity_or_error = EntityHandler().create_entity(AccountUser, **user_data); assert entity_or_error == 'There was an error validating the data';",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        }
+    ]
+}

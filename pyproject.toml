@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "decorating-class"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^2.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+bpython = "^0.24"
+mypy = "^1.5.1"
+pycln = "^2.2.2"
+
+[tool.pycln]
+path="/src/"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
