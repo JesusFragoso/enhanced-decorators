@@ -11,6 +11,7 @@ from decorators import OperationHandler
 from decorators import CustomDict
 from uuid import uuid4
 from decorators import EntityHandler
+from decorators.particular import DataController
 
 
 """
@@ -19,7 +20,7 @@ TODO:
 1. Make a decorator with arguments. ✅
 2. Make a decorator using a class instead of a normal function. ✅
 3. Make a decorator for a class, that applies the additional behaviour into
-   each one of the methods of the decorated class.
+   each one of the methods of the decorated class. ✅
 """
 
 @normal_decorator
@@ -91,4 +92,10 @@ if __name__ == "__main__":
     entity_or_error = EntityHandler().create_entity(AccountUser, **user_data)
     assert entity_or_error == 'There was an error validating the data'
      
-    
+    #* Decorating a classs to apply additional behaviour into each method
+    #* defined inside of this class.
+
+    data_controller = DataController()
+
+    assert data_controller.create_entity(User, **user_data) != "There was an error with the data entered - 😞 ❌"
+    assert data_controller.create_entity(AccountUser, **user_data) == "There was an error with the data entered - 😞 ❌"
